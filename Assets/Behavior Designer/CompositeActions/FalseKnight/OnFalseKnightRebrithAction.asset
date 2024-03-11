@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b23f08d2ae4cba14087c1ed36193d82b, type: 3}
+  m_Name: OnFalseKnightRebrithAction
+  m_EditorClassIdentifier: 
+  mBehaviorSource:
+    behaviorName: Behavior
+    behaviorDescription: 
+    mTaskData:
+      types: []
+      parentIndex: 
+      startIndex: 
+      variableStartIndex: 
+      JSONSerialization: '{"EntryTask":{"Type":"BehaviorDesigner.Runtime.Tasks.EntryTask","NodeData":{"Offset":"(126.769073,-284.159)"},"ID":0,"Name":"Entry","Instant":true},"RootTask":{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(-0.58263135,107.079475)","Comment":"\u5047\u9a91\u58eb\u590d\u6d3b\u524d\u52a8\u4f5c"},"ID":1,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Unity.UnityAnimator.SetTrigger","NodeData":{"Offset":"(-474.901367,144.917831)","Comment":"\u9690\u85cf\u8840\u91cf\u6761"},"ID":2,"Name":"Set
+        Trigger","Instant":true,"SharedGameObjecttargetGameObject":{"Type":"BehaviorDesigner.Runtime.SharedGameObject","Name":"MaggotHealthBarGO","IsShared":true},"SharedStringparamaterName":{"Type":"BehaviorDesigner.Runtime.SharedString","Name":null,"StringmValue":"show_Exit"}},{"Type":"SetEnemyCanBeAttack","NodeData":{"Offset":"(-364.6408,143.90152)","Comment":"\u86c6\u4e3b\u65e0\u654c\n\u4e0d\u518d\u53ef\u88ab\u653b\u51fb"},"ID":3,"Name":"\u8bbe\u7f6e\u65e0\u654c\u72b6\u6001","Instant":true,"SharedGameObjectenemyGO":{"Type":"BehaviorDesigner.Runtime.SharedGameObject","Name":"MaggotGO","IsShared":true},"BooleancanBeAttack":false},{"Type":"BehaviorDesigner.Runtime.Tasks.Unity.UnityAnimator.SetBoolParameter","NodeData":{"Offset":"(-231.995117,144.738571)","Comment":"\u5047\u9a91\u58eb\u86c6\u4e3b\u7f29\u56de"},"ID":4,"Name":"Set
+        Bool Parameter","Instant":true,"SharedGameObjecttargetGameObject":{"Type":"BehaviorDesigner.Runtime.SharedGameObject","Name":"MaggotGO","IsShared":true},"SharedStringparamaterName":{"Type":"BehaviorDesigner.Runtime.SharedString","Name":null,"StringmValue":"showMaggot_Exit"},"SharedBoolboolValue":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":true},"BooleansetOnce":false},{"Type":"BehaviorDesigner.Runtime.Tasks.Unity.UnityAnimator.WaitForState","NodeData":{"Offset":"(-95.2669144,142.063522)","Comment":"\u7b49\u5f85\u86c6\u4e3b\n\u5b8c\u6210\u7f29\u5934"},"ID":5,"Name":"Wait
+        For State","Instant":true,"SharedGameObjecttargetGameObject":{"Type":"BehaviorDesigner.Runtime.SharedGameObject","Name":"MaggotGO","IsShared":true},"SharedStringstateName":{"Type":"BehaviorDesigner.Runtime.SharedString","Name":null,"StringmValue":"Empty"},"SharedIntlayer":{"Type":"BehaviorDesigner.Runtime.SharedInt","Name":null,"Int32mValue":0}},{"Type":"BehaviorDesigner.Runtime.Tasks.Unity.UnityAnimator.SetBoolParameter","NodeData":{"Offset":"(42.1279373,139.402115)","Comment":"\u5047\u9a91\u58eb\u86c6\u4e3b\n\u7f29\u56de\u53c2\u6570\u590d\u539f"},"ID":6,"Name":"Set
+        Bool Parameter","Instant":true,"SharedGameObjecttargetGameObject":{"Type":"BehaviorDesigner.Runtime.SharedGameObject","Name":"MaggotGO","IsShared":true},"SharedStringparamaterName":{"Type":"BehaviorDesigner.Runtime.SharedString","Name":null,"StringmValue":"showMaggot_Exit"},"SharedBoolboolValue":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":false},"BooleansetOnce":false},{"Type":"HealthBarSetValue","NodeData":{"Offset":"(175.793518,137.473526)","Comment":"\u91cd\u8bbe\u5047\u9a91\u58eb\n\u8840\u6761\u4e3a0"},"ID":7,"Name":"\u8bbe\u7f6e\u8840\u6761\u503c","Instant":true,"SharedGameObjecthealthBarGO":{"Type":"BehaviorDesigner.Runtime.SharedGameObject","Name":"FalseKnightHealthBarGO","IsShared":true},"Singlevalue":0},{"Type":"BehaviorDesigner.Runtime.Tasks.Unity.UnityAnimator.SetTrigger","NodeData":{"Offset":"(293.825348,134.7853)","Comment":"\u663e\u793a\u8840\u91cf\u6761"},"ID":8,"Name":"Set
+        Trigger","Instant":true,"SharedGameObjecttargetGameObject":{"Type":"BehaviorDesigner.Runtime.SharedGameObject","Name":"FalseKnightHealthBarGO","IsShared":true},"SharedStringparamaterName":{"Type":"BehaviorDesigner.Runtime.SharedString","Name":null,"StringmValue":"show_Enter"}},{"Type":"BehaviorDesigner.Runtime.Tasks.Unity.UnityAnimator.SetTrigger","NodeData":{"Offset":"(429.7766,133.947281)","Comment":"\u5047\u9a91\u58eb\u4ece\u51fb\u5012\u72b6\u6001\u590d\u539f"},"ID":9,"Name":"Set
+        Trigger","Instant":true,"SharedGameObjecttargetGameObject":{"Type":"BehaviorDesigner.Runtime.SharedGameObject","Name":null},"SharedStringparamaterName":{"Type":"BehaviorDesigner.Runtime.SharedString","Name":null,"StringmValue":"beHitDown_Exit"}},{"Type":"Rebrith","NodeData":{"Offset":"(566.6975,135.980637)","Comment":"\u590d\u6d3b\u5047\u9a91\u58eb"},"ID":10,"Name":"Rebrith","Instant":true,"SharedGameObjectenemyGO":{"Type":"BehaviorDesigner.Runtime.SharedGameObject","Name":null},"SharedFloatnewHealth":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":0}},{"Type":"HealthBarLoad","NodeData":{"Offset":"(680.8957,136.568649)","Comment":"\u540c\u6b65\u6570\u636e"},"ID":11,"Name":"\u8f7d\u5165\u6570\u636e","Instant":true,"SharedGameObjecthealthBarGO":{"Type":"BehaviorDesigner.Runtime.SharedGameObject","Name":"FalseKnightHealthBarGO","IsShared":true},"BooleanshowTranstion":true}]},"DetachedTasks":[{"Type":"HealthBarLoad","NodeData":{"Offset":"(2123.37329,6.14076233)","Comment":"\u540c\u6b65\u6570\u636e"},"ID":12,"Name":"\u8f7d\u5165\u6570\u636e","Instant":true,"SharedGameObjecthealthBarGO":{"Type":"BehaviorDesigner.Runtime.SharedGameObject","Name":"FalseKnightHealthBarGO","IsShared":true},"BooleanshowTranstion":true}],"Variables":[{"Type":"BehaviorDesigner.Runtime.SharedGameObject","Name":"MaggotHealthBarGO","IsShared":true},{"Type":"BehaviorDesigner.Runtime.SharedGameObject","Name":"MaggotGO","IsShared":true},{"Type":"BehaviorDesigner.Runtime.SharedGameObject","Name":"FalseKnightHealthBarGO","IsShared":true}]}'
+      fieldSerializationData:
+        typeName: []
+        fieldNameHash: 
+        startIndex: 
+        dataPosition: 
+        unityObjects: []
+        byteData: 
+        byteDataArray: 
+      Version: 1.7.7

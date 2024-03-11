@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: DefeatMenu
+  m_Controller: {fileID: 9100000, guid: 5f57f7648f7fca84aa5d68686d7fc1fa, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 1358cf0cfdfb6874786c93bf640e31e7, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: aa40940bb60198543a05231aaba8e7b4, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 15871ce02803f8243a6fd07f729d8be2, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: fd19f5de204bd4345b9b218d19713f20, type: 2}

@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b23f08d2ae4cba14087c1ed36193d82b, type: 3}
+  m_Name: HeavyAttack
+  m_EditorClassIdentifier: 
+  mBehaviorSource:
+    behaviorName: HeavyAttack
+    behaviorDescription: "\u5047\u9A91\u58EB\u7684\u91CD\u653B\u51FB\u4E0E\u8FDC\u7A0B\u653B\u51FB\u624B\u6BB5\uFF1A\u84C4\u529B\u540E\u53D1\u5C04\u4E00\u9053\u51B2\u51FB\u6CE2"
+    mTaskData:
+      types: []
+      parentIndex: 
+      startIndex: 
+      variableStartIndex: 
+      JSONSerialization: '{"EntryTask":{"Type":"BehaviorDesigner.Runtime.Tasks.EntryTask","NodeData":{"Offset":"(-378.547241,228.471008)"},"ID":0,"Name":"Entry","Instant":true},"RootTask":{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(0.271476746,107.783554)"},"ID":1,"Name":"\u5927\u529b\u7838\u51fb\u52a8\u4f5c","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"FaceTo","NodeData":{"Offset":"(-283.545441,124.806793)"},"ID":2,"Name":"\u671d\u5411\u89d2\u8272","Instant":true,"SharedTransformfaceT":{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"AimTransform","IsShared":true,"Tooltip":"\u76ee\u6807\u5f62\u53d8"},"BooleandoInvert":false,"SingleminDistanceToFilp":0.1},{"Type":"BehaviorDesigner.Runtime.Tasks.Unity.UnityAnimator.SetTrigger","NodeData":{"Offset":"(-163.311554,124.806793)","Comment":"\u653b\u51fb\u51c6\u5907\u52a8\u753b"},"ID":3,"Name":"","Instant":true,"SharedGameObjecttargetGameObject":{"Type":"BehaviorDesigner.Runtime.SharedGameObject","Name":null},"SharedStringparamaterName":{"Type":"BehaviorDesigner.Runtime.SharedString","Name":null,"StringmValue":"normalAttack_Prepare"}},{"Type":"PlaySEAction","NodeData":{"Offset":"(-52.3044739,128.430939)","Comment":"\u64ad\u653e\u84c4\u529b\u97f3\u6548"},"ID":4,"Name":"\u64ad\u653e\u97f3\u6548","Instant":true,"StringSEName":"FalseKnight_PrepareHeavyAttack"},{"Type":"BehaviorDesigner.Runtime.Tasks.Wait","NodeData":{"Offset":"(61.48214,127.24588)","Comment":"\u968f\u673a\u524d\u6447\u65f6\u957f"},"ID":5,"Name":"","Instant":true,"SharedFloatwaitTime":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":1},"SharedBoolrandomWait":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":true},"SharedFloatrandomWaitMin":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"PreAttackTime_Min","IsShared":true,"Tooltip":"\u653b\u51fb\u51c6\u5907\u65f6\u95f4\u7684\u6700\u5c0f\u503c","SinglemValue":0.5},"SharedFloatrandomWaitMax":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"PreAttackTime_Max","IsShared":true,"Tooltip":"\u653b\u51fb\u51c6\u5907\u65f6\u95f4\u7684\u6700\u5927\u503c","SinglemValue":1.5}},{"Type":"BehaviorDesigner.Runtime.Tasks.Unity.UnityAnimator.SetTrigger","NodeData":{"Offset":"(171.482147,127.245819)","Comment":"\u5f00\u59cb\u653b\u51fb\u52a8\u4f5c"},"ID":6,"Name":"","Instant":true,"SharedGameObjecttargetGameObject":{"Type":"BehaviorDesigner.Runtime.SharedGameObject","Name":null},"SharedStringparamaterName":{"Type":"BehaviorDesigner.Runtime.SharedString","Name":null,"StringmValue":"normalAttack_Enter"}},{"Type":"BehaviorDesigner.Runtime.Tasks.Unity.UnityAnimator.WaitForState","NodeData":{"Offset":"(294.656952,126.848969)","Comment":"\u7b49\u5f85\u653b\u51fb\u52a8\u4f5c\u5b8c\u6210"},"ID":7,"Name":"","Instant":true,"SharedGameObjecttargetGameObject":{"Type":"BehaviorDesigner.Runtime.SharedGameObject","Name":null},"SharedStringstateName":{"Type":"BehaviorDesigner.Runtime.SharedString","Name":null,"StringmValue":"NormalAttack_Exit"},"SharedIntlayer":{"Type":"BehaviorDesigner.Runtime.SharedInt","Name":null,"Int32mValue":0}},{"Type":"ShakeCamera","NodeData":{"Offset":"(420.850555,131.631088)","Comment":"\u6444\u50cf\u673a\u9707\u52a8"},"ID":8,"Name":"","Instant":true,"SharedGameObjectimpulseSourceGO":{"Type":"BehaviorDesigner.Runtime.SharedGameObject","Name":"ImpulseSourceGO","IsShared":true,"Tooltip":"\u6444\u50cf\u673a\u9707\u52a8\u6e90\u6240\u5728\u7684\u6e38\u620f\u5bf9\u8c61"},"Vector2direction":"(0,-1)","Singleforce":0.25},{"Type":"SwitchSpawner","NodeData":{"Offset":"(544.9407,132.304672)","Comment":"\u751f\u6210\u51b2\u51fb\u6ce2"},"ID":9,"Name":"","Instant":true,"SharedGameObjectspawnerGO":{"Type":"BehaviorDesigner.Runtime.SharedGameObject","Name":"SpawnerGO","IsShared":true,"Tooltip":"\u751f\u6210\u5668\u7ec4\u4ef6\u6240\u5728\u7684\u6e38\u620f\u5bf9\u8c61"},"BooleanoffOrOn":true}]},"Variables":[{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"AimTransform","IsShared":true,"Tooltip":"\u76ee\u6807\u5f62\u53d8"},{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"PreAttackTime_Min","IsShared":true,"Tooltip":"\u653b\u51fb\u51c6\u5907\u65f6\u95f4\u7684\u6700\u5c0f\u503c","SinglemValue":0.5},{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"PreAttackTime_Max","IsShared":true,"Tooltip":"\u653b\u51fb\u51c6\u5907\u65f6\u95f4\u7684\u6700\u5927\u503c","SinglemValue":1.5},{"Type":"BehaviorDesigner.Runtime.SharedGameObject","Name":"ImpulseSourceGO","IsShared":true,"Tooltip":"\u6444\u50cf\u673a\u9707\u52a8\u6e90\u6240\u5728\u7684\u6e38\u620f\u5bf9\u8c61"},{"Type":"BehaviorDesigner.Runtime.SharedGameObject","Name":"SpawnerGO","IsShared":true,"Tooltip":"\u751f\u6210\u5668\u7ec4\u4ef6\u6240\u5728\u7684\u6e38\u620f\u5bf9\u8c61"}]}'
+      fieldSerializationData:
+        typeName: []
+        fieldNameHash: 
+        startIndex: 
+        dataPosition: 
+        unityObjects: []
+        byteData: 
+        byteDataArray: 
+      Version: 1.7.7

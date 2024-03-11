@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Platform
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - Enemy
+  - Environment
+  - Item
+  - MainChara
+  - AttackEffect
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 76820619
+    locked: 0
+  - name: Instance
+    uniqueID: 3734197789
+    locked: 0
+  - name: Character
+    uniqueID: 497074451
+    locked: 0
+  - name: Foreground
+    uniqueID: 2614101869
+    locked: 0
+  - name: Effect
+    uniqueID: 2412193567
+    locked: 0

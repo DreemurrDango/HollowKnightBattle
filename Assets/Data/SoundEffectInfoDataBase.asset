@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9138b2c15a0570c45965d89c4065b848, type: 3}
+  m_Name: SoundEffectInfoDataBase
+  m_EditorClassIdentifier: 
+  soundEffectInfos:
+  - name: FalseKnight_BeHit
+    clip: {fileID: 8300000, guid: ba5eac0a915a07c46872cec0416a3c40, type: 3}
+    volumeRange: {x: 1, y: 1}
+    pitchRange: {x: 1, y: 1}
+  - name: FalseKnight_BeHitDown
+    clip: {fileID: 8300000, guid: 523c6b9d2fbc2294c9cead3ff10dc602, type: 3}
+    volumeRange: {x: 1, y: 1}
+    pitchRange: {x: 1, y: 1}
+  - name: FalseKnight_Jump
+    clip: {fileID: 8300000, guid: d22d75a970836aa4d8857bc6340a2ce7, type: 3}
+    volumeRange: {x: 1, y: 1}
+    pitchRange: {x: 1, y: 1}
+  - name: FalseKnight_Land
+    clip: {fileID: 8300000, guid: b16f396a344cf954bab56f9cdfea055a, type: 3}
+    volumeRange: {x: 1, y: 1}
+    pitchRange: {x: 1, y: 1}
+  - name: FalseKnight_RockHitGround
+    clip: {fileID: 8300000, guid: 3e382b98c91439842ae6f905ad379b9e, type: 3}
+    volumeRange: {x: 1, y: 1}
+    pitchRange: {x: 1, y: 1}
+  - name: FalseKnight_NormalAttack
+    clip: {fileID: 8300000, guid: 20e6faf2c6fde7a48ba4362536c7a4cf, type: 3}
+    volumeRange: {x: 0.7, y: 0.8}
+    pitchRange: {x: 1, y: 1}
+  - name: FalseKnight_HeavyAttack
+    clip: {fileID: 8300000, guid: 20e6faf2c6fde7a48ba4362536c7a4cf, type: 3}
+    volumeRange: {x: 1, y: 1}
+    pitchRange: {x: 1, y: 1.2}
+  - name: HollowKnight_BeHit1
+    clip: {fileID: 8300000, guid: 38efe1e26d440ad4f96bfffb748216f6, type: 3}
+    volumeRange: {x: 1, y: 1}
+    pitchRange: {x: 1, y: 1}
+  - name: HollowKnight_BeHit2
+    clip: {fileID: 8300000, guid: 6660d63e36604dc458c62b2d916ef096, type: 3}
+    volumeRange: {x: 1, y: 1}
+    pitchRange: {x: 1, y: 1}
+  - name: HollowKnight_Attack
+    clip: {fileID: 8300000, guid: 5d7192d66dcbc154b98ffbde4e899207, type: 3}
+    volumeRange: {x: 1, y: 1}
+    pitchRange: {x: 0.9, y: 1.1}
+  - name: HollowKnight_Dash
+    clip: {fileID: 8300000, guid: aa35ee6d92c55b64c8d40b703fbbb4cf, type: 3}
+    volumeRange: {x: 1, y: 1}
+    pitchRange: {x: 0.9, y: 1.1}
+  - name: HollowKnight_Falling
+    clip: {fileID: 8300000, guid: 0b1b3b5031276da4aa913c574cbd7d00, type: 3}
+    volumeRange: {x: 1, y: 1}
+    pitchRange: {x: 1, y: 1}
+  - name: HollowKnight_Jump
+    clip: {fileID: 8300000, guid: 3376f16b4cf9bb14d93651b96b2abaef, type: 3}
+    volumeRange: {x: 1, y: 1}
+    pitchRange: {x: 1, y: 1}
+  - name: HollowKnight_Land
+    clip: {fileID: 8300000, guid: d85510afed922eb4b9a9e5d1c59ceac0, type: 3}
+    volumeRange: {x: 1, y: 1}
+    pitchRange: {x: 1, y: 1}
+  - name: HollowKnight_Move
+    clip: {fileID: 8300000, guid: 1eb18223229172146981510cc7b645b7, type: 3}
+    volumeRange: {x: 1, y: 1}
+    pitchRange: {x: 0.95, y: 1.05}

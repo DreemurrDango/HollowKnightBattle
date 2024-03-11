@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b23f08d2ae4cba14087c1ed36193d82b, type: 3}
+  m_Name: NomalAttack
+  m_EditorClassIdentifier: 
+  mBehaviorSource:
+    behaviorName: NormalAttack
+    behaviorDescription: "\u5047\u9A91\u58EB\u7684\u666E\u901A\u653B\u51FB\u8FDE\u7EED\u52A8\u4F5C"
+    mTaskData:
+      types: []
+      parentIndex: 
+      startIndex: 
+      variableStartIndex: 
+      JSONSerialization: '{"EntryTask":{"Type":"BehaviorDesigner.Runtime.Tasks.EntryTask","NodeData":{"Offset":"(-1132.27,313.0617)"},"ID":0,"Name":"Entry","Instant":true},"RootTask":{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(0.333353043,110.380974)"},"ID":1,"Name":"\u666e\u901a\u653b\u51fb\u52a8\u4f5c","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"FaceTo","NodeData":{"Offset":"(-236.666718,130)"},"ID":2,"Name":"\u671d\u5411\u89d2\u8272","Instant":true,"SharedTransformfaceT":{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"AimTransform","IsShared":true,"Tooltip":"\u4e3b\u89d2\u7684\u5f62\u53d8"},"BooleandoInvert":false,"SingleminDistanceToFilp":0.1},{"Type":"BehaviorDesigner.Runtime.Tasks.Unity.UnityAnimator.SetTrigger","NodeData":{"Offset":"(-120.66671,130)"},"ID":3,"Name":"\u653b\u51fb\u51c6\u5907\u52a8\u753b","Instant":true,"SharedGameObjecttargetGameObject":{"Type":"BehaviorDesigner.Runtime.SharedGameObject","Name":null},"SharedStringparamaterName":{"Type":"BehaviorDesigner.Runtime.SharedString","Name":null,"StringmValue":"normalAttack_Prepare"}},{"Type":"BehaviorDesigner.Runtime.Tasks.Wait","NodeData":{"Offset":"(-5.666666,130)"},"ID":4,"Name":"\u968f\u673a\u524d\u6447\u65f6\u957f","Instant":true,"SharedFloatwaitTime":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":1},"SharedBoolrandomWait":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":true},"SharedFloatrandomWaitMin":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"PreAttackTime_Min","IsShared":true,"Tooltip":"\u8fdb\u884c\u653b\u51fb\u524d\u6447\u7684\u6700\u5c0f\u65f6\u95f4","SinglemValue":0.25},"SharedFloatrandomWaitMax":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"PreAttackTime_Max","IsShared":true,"Tooltip":"\u8fdb\u884c\u653b\u51fb\u524d\u6700\u5927\u7684\u524d\u6447\u65f6\u95f4","SinglemValue":0.75}},{"Type":"BehaviorDesigner.Runtime.Tasks.Unity.UnityAnimator.SetTrigger","NodeData":{"Offset":"(114.333336,130)"},"ID":5,"Name":"\u5f00\u59cb\u653b\u51fb\u52a8\u4f5c","Instant":true,"SharedGameObjecttargetGameObject":{"Type":"BehaviorDesigner.Runtime.SharedGameObject","Name":null},"SharedStringparamaterName":{"Type":"BehaviorDesigner.Runtime.SharedString","Name":null,"StringmValue":"normalAttack_Enter"}},{"Type":"BehaviorDesigner.Runtime.Tasks.Unity.UnityAnimator.WaitForState","NodeData":{"Offset":"(233.333282,130)"},"ID":6,"Name":"\u7b49\u5f85\u653b\u51fb\u52a8\u4f5c\u5b8c\u6210","Instant":true,"SharedGameObjecttargetGameObject":{"Type":"BehaviorDesigner.Runtime.SharedGameObject","Name":null},"SharedStringstateName":{"Type":"BehaviorDesigner.Runtime.SharedString","Name":null,"StringmValue":"Idle"},"SharedIntlayer":{"Type":"BehaviorDesigner.Runtime.SharedInt","Name":null,"Int32mValue":0}}]},"Variables":[{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"AimTransform","IsShared":true,"Tooltip":"\u4e3b\u89d2\u7684\u5f62\u53d8"},{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"PreAttackTime_Min","IsShared":true,"Tooltip":"\u8fdb\u884c\u653b\u51fb\u524d\u6447\u7684\u6700\u5c0f\u65f6\u95f4","SinglemValue":0.25},{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"PreAttackTime_Max","IsShared":true,"Tooltip":"\u8fdb\u884c\u653b\u51fb\u524d\u6700\u5927\u7684\u524d\u6447\u65f6\u95f4","SinglemValue":0.75}]}'
+      fieldSerializationData:
+        typeName: []
+        fieldNameHash: 
+        startIndex: 
+        dataPosition: 
+        unityObjects: []
+        byteData: 
+        byteDataArray: 
+      Version: 1.7.7
