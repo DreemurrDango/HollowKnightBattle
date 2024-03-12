@@ -3375,7 +3375,9 @@ Transform:
   m_LocalPosition: {x: -4.4289026, y: -0.26485002, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 616436944}
+  - {fileID: 2102320127}
   m_Father: {fileID: 792947878}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3760,7 +3762,8 @@ MonoBehaviour:
   strength: 10
   vibrato: 90
   impulseSource: {fileID: 2102320126}
-  force: 5
+  force: 3
+  direction: {x: 0, y: 1}
   rigidbody2D: {fileID: 2133636737}
   addForce: {x: 200, y: 400}
   backOrForward: 0
@@ -3946,8 +3949,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 792947878}
-  m_RootOrder: 3
+  m_Father: {fileID: 519420032}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &616436945
 MonoBehaviour:
@@ -4849,7 +4852,6 @@ MonoBehaviour:
   fullSpeed: 5
   t_accelerateToFullSpeed: 0.25
   StrickMoveThreshold: 0
-  footstepSEPlayer: {fileID: 0}
   attackCoolDown: 0.3
   damageFactor: 1
   attackRootT: {fileID: 2127841769}
@@ -5236,8 +5238,6 @@ Transform:
   - {fileID: 519420032}
   - {fileID: 1828729353}
   - {fileID: 54761506}
-  - {fileID: 616436944}
-  - {fileID: 2102320127}
   - {fileID: 1279652069}
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -5290,10 +5290,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -5376,8 +5376,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 831280541}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -3.14, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.11, y: -3.2, z: 0}
+  m_LocalScale: {x: 1, y: 1.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2019003275}
@@ -7870,8 +7870,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1224095248}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.3317, y: -3.14, z: 0}
-  m_LocalScale: {x: 1.0355, y: 1, z: 1}
+  m_LocalPosition: {x: -0.42, y: -3.2, z: 0}
+  m_LocalScale: {x: 1.0355, y: 1.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1834193595}
@@ -8142,7 +8142,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 792947878}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1287596488
 GameObject:
@@ -11114,13 +11114,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00b2d199b96b516448144ab30fb26aed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ApplyAfter: 2
+  m_ApplyAfter: 0
   m_ChannelMask: 1
   m_Gain: 1
   m_Use2DDistance: 1
   m_UseCameraSpace: 1
   m_ReactionSettings:
-    m_SecondaryNoise: {fileID: 0}
+    m_SecondaryNoise: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
     m_AmplitudeGain: 1
     m_FrequencyGain: 1
     m_Duration: 1
@@ -12512,14 +12512,14 @@ MonoBehaviour:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-      m_AttackTime: 0
+      m_AttackTime: 0.25
       m_SustainTime: 5
       m_DecayTime: 0.75
       m_ScaleWithImpact: 0
       m_HoldForever: 0
     m_ImpactRadius: 100
     m_DirectionMode: 0
-    m_DissipationMode: 2
+    m_DissipationMode: 1
     m_DissipationDistance: 100
     m_PropagationSpeed: 10
   m_DefaultVelocity: {x: 0, y: 1, z: 0}
@@ -12535,8 +12535,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 792947878}
-  m_RootOrder: 4
+  m_Father: {fileID: 519420032}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2115115585
 GameObject:

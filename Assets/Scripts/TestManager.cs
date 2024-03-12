@@ -17,6 +17,7 @@ public class TestManager : Singleton<TestManager>
     [Header("cinemachine¾µÍ·")]
     public CinemachineImpulseSource impulseSource;
     public float force;
+    public Vector2 direction;
 
     [ContextMenu("²âÊÔDOTWEEN¾µÍ·Õð¶¯")]
     public void DoShakeByDoTween()
@@ -27,7 +28,7 @@ public class TestManager : Singleton<TestManager>
     [ContextMenu("²âÊÔCinemachine¾µÍ·Õð¶¯")]
     public void DoShakeByCinemachine()
     {
-        impulseSource.GenerateImpulse(force);
+        impulseSource.GenerateImpulse(direction * force);
     }
     #endregion
 

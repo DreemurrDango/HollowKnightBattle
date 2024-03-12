@@ -37,9 +37,6 @@ public class CharaController : Singleton<CharaController>
     [Range(0f,1f)]
     [Tooltip("摇杆操纵下，角色移动的最小值")]
     private float StrickMoveThreshold = 0.15f;
-    [SerializeField]
-    [Tooltip("播放脚步声音效的音频源")]
-    private AudioSource footstepSEPlayer;
 
     [Header("-攻击")]
     [SerializeField]
@@ -143,6 +140,10 @@ public class CharaController : Singleton<CharaController>
     /// 跳跃动作的剩余冷却时间
     /// </summary>
     private float t_jumpCD = 0f;
+    /// <summary>
+    /// 要播放的攻击动画序号（从0开始）
+    /// </summary>
+    private int attackAnimIndex = 0;
     
     /// <summary>
     /// 当前是否正按住跳跃键
@@ -153,9 +154,9 @@ public class CharaController : Singleton<CharaController>
     /// </summary>
     private float horizontalInput = 0f;
     /// <summary>
-    /// 跳跃输入的开始时间戳
+    /// 跳跃键已按住的时间
     /// </summary>
-    private float t_jumpInputBegin = 0f;
+    private float t_jumpInputHold = 0f;
     /// <summary>
     /// 是否收到跳跃命令
     /// </summary>
@@ -219,10 +220,10 @@ public class CharaController : Singleton<CharaController>
     {
         if (context.started && !doJumpButtonHold)
         {
-            t_jumpInputBegin = Time.time;
+            t_jumpInputHold = 0f;
             doJumpButtonHold = true;
         }
-        else if (context.canceled)
+        else if (context.canceled && doJumpButtonHold)
         {
             doJumpButtonHold = false;
             doGetJumpInput = true;
@@ -265,12 +266,23 @@ public class CharaController : Singleton<CharaController>
         float horizontalSpeed = Mathf.Abs(rigidbody.velocity.x);
         animator.SetFloat("horizontalSpeed", horizontalSpeed);
         // 每帧的跳跃判断
+        //-跳跃输入计时器更新
+        if (doJumpButtonHold && !doGetJumpInput)
+        {
+            //按住跳跃键时间达到最大跳跃高度所需的时长时，自动跳跃
+            t_jumpInputHold += Time.deltaTime;
+            if(t_jumpInputHold > jumpInputTime.y)
+            {
+                doJumpButtonHold = false;
+                doGetJumpInput = true;
+            }
+        }
         //-发生跳跃动作输入时，判断是否有效
-        if(doGetJumpInput)
+        if (doGetJumpInput)
         {
             if(!InDamageLock && CanJump)
             {
-                float t = Mathf.Clamp(Time.time - t_jumpInputBegin, jumpInputTime.x, jumpInputTime.y);
+                float t = Mathf.Clamp(t_jumpInputHold, jumpInputTime.x, jumpInputTime.y);
                 t = (t - jumpInputTime.x) / (jumpInputTime.y - jumpInputTime.x);
                 Vector2 upForce = Vector2.up * Mathf.Lerp(jumpInputForce.x, jumpInputForce.y, t);
                 rigidbody.AddForce(upForce);
@@ -287,10 +299,16 @@ public class CharaController : Singleton<CharaController>
             var randomNum = Random.Range(0, attackEffectPrefabs.Count);
             //攻击特效产生形变位置根据当前水平速度产生偏移，全速奔跑时会使得攻击位置靠前
             attackRootT.localPosition = new Vector3(horizontalSpeed * maxAttackRootOffset / fullSpeed, 0f, 0f);
+            //播放攻击音效
             AudioManager.Instance.PlaySE(attackSEName, transform);
+            //生成攻击效果实例
             var ae = Instantiate(attackEffectPrefabs[randomNum].gameObject, attackRootT).GetComponent<AttackEffect>();
             ae.Init(gameObject, damageFactor);
+            //循环播放攻击动作动画
+            attackAnimIndex = (attackAnimIndex + 1) % 2;
+            animator.SetInteger("attackAnimIndex", attackAnimIndex);
             animator.SetTrigger("doAttack");
+            //攻击内置CD
             t_attackCD = attackCoolDown;
             doGetAttackInput = false;
         }
