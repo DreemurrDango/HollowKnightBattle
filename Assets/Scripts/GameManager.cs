@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.Events;
@@ -34,9 +35,16 @@ public class GameManager : Singleton<GameManager>
         initEvents?.Invoke();
     }
 
+    public TMP_Text text;
     private void Start()
     {
-        mobileControlUI.SetActive(SystemInfo.deviceType == DeviceType.Handheld);
+        if(Application.isMobilePlatform)
+        {
+            Screen.autorotateToPortrait = true;
+            Screen.autorotateToLandscapeRight = true;
+            Screen.fullScreenMode = FullScreenMode.FullScreenWindow;
+        }
+        mobileControlUI.SetActive(Application.isMobilePlatform);
     }
 
     /// <summary>

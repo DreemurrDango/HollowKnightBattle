@@ -213,7 +213,7 @@ public partial class @DefaultInput : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""f04a64b3-0810-477f-bbc8-bf662592ec8a"",
-                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""path"": ""<Gamepad>/buttonWest"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
