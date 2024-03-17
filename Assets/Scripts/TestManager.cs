@@ -61,6 +61,7 @@ public class TestManager : Singleton<TestManager>
     }
     #endregion
 
+    #region 时间慢放效果测试
     /// <summary>
     /// 时间慢放特效
     /// </summary>
@@ -79,4 +80,5 @@ public class TestManager : Singleton<TestManager>
     {
         timeScale = Time.timeScale;
     }
+    #endregion
 }

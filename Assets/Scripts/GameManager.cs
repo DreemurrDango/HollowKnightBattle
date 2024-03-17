@@ -35,14 +35,15 @@ public class GameManager : Singleton<GameManager>
         initEvents?.Invoke();
     }
 
-    public TMP_Text text;
     private void Start()
     {
         if(Application.isMobilePlatform)
         {
-            Screen.autorotateToPortrait = true;
+            Screen.autorotateToPortrait = false;
+            Screen.autorotateToLandscapeLeft = true;
             Screen.autorotateToLandscapeRight = true;
-            Screen.fullScreenMode = FullScreenMode.FullScreenWindow;
+            Screen.orientation = ScreenOrientation.LandscapeLeft;
+            //Screen.fullScreen = true;
         }
         mobileControlUI.SetActive(Application.isMobilePlatform);
     }
@@ -100,4 +101,6 @@ public class GameManager : Singleton<GameManager>
             Application.Quit();
         }
     }
+
+    public void SwitchFullScreen() => Screen.fullScreen = !Screen.fullScreen;
 }
