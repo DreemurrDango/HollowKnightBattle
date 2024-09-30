@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using DG.Tweening;
+using BehaviorDesigner.Runtime;
 
 public class Enemy : MonoBehaviour
 {
@@ -11,12 +13,18 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     [Tooltip("设置是否可被攻击命中")]
     private bool canBeHit = true;
+    [SerializeField,DisplayOnly]
+    [Tooltip("是否正处于僵直状态，此状态下的敌人无攻击能力且可被攻击，但攻击不再计为连击")]
+    private bool inLimpState = false;
     [SerializeField, DisplayOnly]
     [Tooltip("生命值")]
     private float health;
     [HideInInspector]
     [Tooltip("失去生命值时事件")]
     public UnityEvent afterLoseHealth;
+    [DisplayOnly,SerializeField]
+    [Tooltip("当前是否在地面上")]
+    private bool onGround;
 
     [Header("相关组件")]
     [SerializeField]
@@ -26,22 +34,32 @@ public class Enemy : MonoBehaviour
     [Tooltip("精灵渲染器")]
     private SpriteRenderer spriteRenderer;
     [SerializeField]
-    [Tooltip("精灵遮罩")]
-    private SpriteMask spriteMask;
+    [Tooltip("该敌人的行为树组件")]
+    private BehaviorTree behaviorTree;
 
     [Header("-被击中时效果")]
     [SerializeField]
-    [Tooltip("击中时的变色特效，若不设置则不进行显示")]
-    private GameObject hitColorEffect;
-    [SerializeField]
     [Tooltip("被攻击时的粒子特效，若不设置则不进行显示")]
     private ParticleSystem hitParticleEffect;
+    [SerializeField]
+    [Tooltip("该敌人受伤时受到的击退力效果")]
+    private Vector2 hitBackForce = Vector2.zero;
     [SerializeField]
     [Tooltip("被攻击时动画触发词，若置空则不进行显示")]
     private string beHitTrigger;
     [SerializeField]
     [Tooltip("被攻击时播放音效信息名，若置空则不进行显示")]
     private string beHitSEName;
+    [DisplayOnly, SerializeField]
+    [Tooltip("自上一次战斗僵直后累计被击中的次数")]
+    private int beHitCount;
+    [Header("--连击")]
+    [SerializeField]
+    [Tooltip("连击时间间隔，超过该时间受击连击中断")]
+    private float t_beHitComboInterval = 2f;
+    [DisplayOnly, SerializeField]
+    [Tooltip("已连击次数")]
+    private int beHitComboCount;
 
     [Header("-死亡时效果")]
     [SerializeField]
@@ -72,6 +90,14 @@ public class Enemy : MonoBehaviour
     /// 近期伤害了该单位的攻击特效
     /// </summary>
     private AttackEffect hitEffect;
+    /// <summary>
+    /// 上一次受击的时间戳
+    /// </summary>
+    private float t_lastHitTime;
+    /// <summary>
+    /// 特殊的精灵渲染器
+    /// </summary>
+    private Material material;
 
     /// <summary>
     /// 该对象当前是否可被攻击命中
@@ -93,16 +119,32 @@ public class Enemy : MonoBehaviour
     /// 该敌人当前是否面向右侧
     /// </summary>
     public bool DoFaceRight => transform.localScale.x > 0;
+    /// <summary>
+    /// 上一次僵直后被攻击的总次数，用于进行判断
+    /// </summary>
+    public int BeHitCount { get => beHitCount; set => beHitCount = value; }
+    /// <summary>
+    /// 被连击次数
+    /// </summary>
+    public int BeHitComboCount => beHitComboCount;
 
     private void Start()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
         health = originHealth;
+        beHitCount = 0;
+        beHitComboCount = 0;
+        material = spriteRenderer.material;
     }
 
     private void Update()
     {
-        if(rigidbody2D != null)animator.SetFloat("verticalSpeed", rigidbody2D.velocity.y);
+        if(rigidbody2D != null)
+        {
+            animator.SetFloat("horizontalSpeed", Mathf.Abs(rigidbody2D.velocity.x));
+            animator.SetFloat("verticalSpeed", rigidbody2D.velocity.y);
+            animator.SetBool("onGround", onGround);
+        }
     }
 
     /// <summary>
@@ -111,26 +153,45 @@ public class Enemy : MonoBehaviour
     /// <param name="damage">受到的伤害量</param>
     public void OnBeHit(AttackEffect effect)
     {
+        behaviorTree.SendEvent("BeHit");
         if (!IsAlive) return;
+        if (!CanBeHit) return;
+        //非硬直状态下受击次数统计
+        if (!inLimpState) beHitCount++;
+        //非硬直状态下连击次数统计
+        if(!inLimpState)
+        {
+            if (Time.time - t_lastHitTime < t_beHitComboInterval) beHitComboCount++;
+            else beHitComboCount = 1;
+            t_lastHitTime = Time.time;
+        }
+        //受击后退力
+        if (hitBackForce != Vector2.zero)
+        {
+            Vector2 v = effect.transform.position - transform.position;
+            rigidbody2D.AddForce( v * -1 * hitBackForce);
+        }
+        //计算伤害
         health -= effect.FinalDamage;
+        behaviorTree.SendEvent<float>("BeHurt",effect.FinalDamage);
         afterLoseHealth?.Invoke();
         hitEffect = effect;
-        if (hitColorEffect != null)
-            StartCoroutine(ShowHitColorEffectBriefly(0.1f));
+        ShowHitColorEffectBriefly(0.1f);
+        //受伤动画机更新
         if (beHitTrigger != "") animator.SetTrigger(beHitTrigger);
         if (health <= 0) OnDied();
-        else
-        {
-            if (beHitSEName != "") AudioManager.Instance.PlaySE("FalseKnight_BeHit", transform);
-        }
+        else if(beHitSEName != "") AudioManager.Instance.PlaySE(beHitSEName, transform);
+
 
         //受击变色特效线程
-        IEnumerator ShowHitColorEffectBriefly(float t)
+        void ShowHitColorEffectBriefly(float t)
         {
-            spriteMask.sprite = spriteRenderer.sprite;
-            hitColorEffect.SetActive(true);
-            yield return new WaitForSecondsRealtime(t);
-            hitColorEffect.SetActive(false);
+            Sequence sequence = DOTween.Sequence();
+            int sid = Shader.PropertyToID("_HitEffectBlend");
+            sequence.Append(material.DOFloat(1f, sid, 0.1f))
+                .AppendInterval(t)
+                .Append(material.DOFloat(0f, sid, 0.1f));
+            sequence.Play();
         }
     }
 
@@ -142,7 +203,7 @@ public class Enemy : MonoBehaviour
         health = 0;
         if (onDiedSEName != "") AudioManager.Instance.PlaySE(onDiedSEName, transform);
         //慢放
-        if (onDiedSlowDownLast > 0f)
+        if (onDiedSlowDownLast > 0f && onDiedTimeScale !=  1)
             StartCoroutine(TestManager.Instance.TimeSlowDownBriefly(onDiedTimeScale, onDiedSlowDownLast));
         // 若设置掐停则清楚当前速度
         Vector2 v = rigidbody2D.velocity;
@@ -185,6 +246,17 @@ public class Enemy : MonoBehaviour
     public void SetCanBeHit(float value) => CanBeHit = value != 0;
 
     /// <summary>
+    /// 设置硬直状态变化
+    /// </summary>
+    /// <param name="exitOrEnter">F：退出硬直状态，T：进入</param>
+    public void SetLimpState(bool exitOrEnter)
+    {
+        if(inLimpState == exitOrEnter) return;
+        if (exitOrEnter) beHitCount = beHitComboCount = 0;
+        inLimpState = exitOrEnter;
+    }
+
+    /// <summary>
     /// 转面向至另一侧
     /// </summary>
     public void TurnAround()
@@ -192,5 +264,15 @@ public class Enemy : MonoBehaviour
         Vector3 scale = transform.localScale;
         scale.x *= -1;
         transform.localScale = scale;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Platform")) onGround = true;
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Platform")) onGround = false;
     }
 }

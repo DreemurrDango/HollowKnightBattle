@@ -5,6 +5,7 @@ using Cinemachine;
 using DG.Tweening;
 using UnityEngine.UI;
 
+[ExecuteInEditMode]
 public class TestManager : Singleton<TestManager>
 {
     #region 镜头震动测试
@@ -80,5 +81,42 @@ public class TestManager : Singleton<TestManager>
     {
         timeScale = Time.timeScale;
     }
+    #endregion
+
+
+    #region 时间慢放效果测试
+    public Transform sourceT;
+    public Transform targetT;
+
+    [ContextMenu("更改朝向")]
+    public void LookAt()
+    {
+        Vector3 direction = (targetT.position - sourceT.position).normalized;
+        // 计算角度
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        angle = (angle + 360) % 360;
+        if (angle > 90 && angle < 270)
+        {
+            sourceT.localScale = new Vector3(-1f, 1f, 1f);
+            angle -= 180;
+        }
+        else sourceT.localScale = new Vector3(1f, 1f, 1f);
+        sourceT.rotation = Quaternion.Euler(0f, 0f, angle);
+    }
+
+    //private void OnDrawGizmos()
+    //{
+    //    Vector3 direction = (targetT.position - sourceT.position).normalized;
+    //    // 计算角度
+    //    float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+    //    angle = (angle + 360) % 360;
+    //    if(angle > 90 && angle < 270)
+    //    {
+    //        sourceT.localScale = new Vector3(-1f, 1f, 1f);
+    //        angle -= 180;
+    //    }
+    //    else sourceT.localScale = new Vector3(1f, 1f, 1f);
+    //    sourceT.rotation = Quaternion.Euler(0f, 0f, angle);
+    //}
     #endregion
 }

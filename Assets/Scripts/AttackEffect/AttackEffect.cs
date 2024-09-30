@@ -56,7 +56,7 @@ public class AttackEffect : MonoBehaviour
             {
                 case "Enemy":
                     var e = hitGO.GetComponent<Enemy>();
-                    if (e.CanBeHit) e.OnBeHit(this);
+                    e.OnBeHit(this);
                     break;
                 case "MainChara":
                     CharaController.Instance.OnBeHit(gameObject, FinalDamage);

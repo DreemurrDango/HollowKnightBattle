@@ -48,6 +48,7 @@ public class AudioManager : Singleton<AudioManager>
     [SerializeField]
     [Tooltip("背景音乐播放声音源")]
     private AudioSource AmbientSource;
+    //TEMP:未使用的以项目数据形式保存的注册表，当前使用的是挂载于AudioManager实例的列表配置
     [SerializeField]
     [Tooltip("音效源数据库")]
     private SoundEffectDataBaseSO soundEffectDB;
@@ -65,7 +66,11 @@ public class AudioManager : Singleton<AudioManager>
     /// 当前正在播放的快照效果信息
     /// </summary>
     private MixerSnapshotConfig currentSnapshot;
-
+    [DisplayOnly]
+    /// <summary>
+    /// 当前正在播放的音效实例
+    /// </summary>
+    public List<SoundEffectPlayer> SEPlayerLists = new List<SoundEffectPlayer>();
     /// <summary>
     /// 根据音效名获得对应的音效播放数据
     /// </summary>
@@ -115,10 +120,30 @@ public class AudioManager : Singleton<AudioManager>
     {
         var info = GetSEInfo(seInfoName);
         if (followT == null) followT = transform;
+        //寻找是否已存在正在播放的同音效实例
+        var sep = SEPlayerLists.Find(s => s.SEName == seInfoName);
+        if(sep != null)
+        {
+            //根据该音效注册信息的多重播放解决方案决定如何播放
+            switch (info.solution)
+            {
+                case SoundEffectInfo.MultiPlaySolution.playOld:
+                case SoundEffectInfo.MultiPlaySolution.playLoop:
+                    return;
+                case SoundEffectInfo.MultiPlaySolution.playNew:
+                    sep.Play();
+                    return;
+                case SoundEffectInfo.MultiPlaySolution.playAll:
+                    break;
+            }
+        }
         var player = Instantiate(soundEffectPlayerPrefab.gameObject,followT).GetComponent<SoundEffectPlayer>();
+        SEPlayerLists.Add(player);
+        Debug.Log("PlaySE " + info.name);
         player.Init(info);
         player.Play();
     }
+    //WORKFLOW:由于此函数未被实际使用，未实装音效多重播放时的处理
     /// <summary>
     /// 固定位置播放游戏音效
     /// </summary>

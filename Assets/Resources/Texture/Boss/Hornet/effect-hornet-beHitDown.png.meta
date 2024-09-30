@@ -1,0 +1,271 @@
+fileFormatVersion: 2
+guid: 4c6b97d1e5e26f34b92e7a591f740643
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 128
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: effect-hornet-beHitDown_0
+      rect:
+        serializedVersion: 2
+        x: 505
+        y: 1735
+        width: 841
+        height: 588
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4c83af489831004d8d41f01bd764d02
+      internalID: 679411454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect-hornet-beHitDown_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1295
+        width: 1842
+        height: 236
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71cfdf493312d3e45ba2d315ee2d0f74
+      internalID: 994030023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect-hornet-beHitDown_11
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 652
+        width: 1842
+        height: 287
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c38c7559f2d1e114f81fd7e486243121
+      internalID: 1982532416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect-hornet-beHitDown_27
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 106
+        width: 720
+        height: 134
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6eac5d815c8a504c93463f466e52c42
+      internalID: -720530446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect-hornet-beHitDown_28
+      rect:
+        serializedVersion: 2
+        x: 1120
+        y: 123
+        width: 722
+        height: 134
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c98f0f5f39460bc47a398c6e509b3552
+      internalID: 148533569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      effect-hornet-beHitDown_15: 946165640
+      effect-hornet-beHitDown_31: -548020640
+      effect-hornet-beHitDown_2: 1757293589
+      effect-hornet-beHitDown_19: -42904919
+      effect-hornet-beHitDown_24: 1543953666
+      effect-hornet-beHitDown_3: -1030079984
+      effect-hornet-beHitDown_17: -1879879852
+      effect-hornet-beHitDown_9: -1280819056
+      effect-hornet-beHitDown_12: 1945898041
+      effect-hornet-beHitDown_11: 1982532416
+      effect-hornet-beHitDown_6: -1444560226
+      effect-hornet-beHitDown_18: 1626726302
+      effect-hornet-beHitDown_10: 462246202
+      effect-hornet-beHitDown_27: -720530446
+      effect-hornet-beHitDown_30: 857206317
+      effect-hornet-beHitDown_4: 994030023
+      effect-hornet-beHitDown_0: 679411454
+      effect-hornet-beHitDown_1: -1190305668
+      effect-hornet-beHitDown_13: -176127791
+      effect-hornet-beHitDown_23: -1158213628
+      effect-hornet-beHitDown_14: -1696487637
+      effect-hornet-beHitDown_20: 1553169313
+      effect-hornet-beHitDown_22: -1783534832
+      effect-hornet-beHitDown_21: 675709722
+      effect-hornet-beHitDown_8: -1008708776
+      effect-hornet-beHitDown_28: 148533569
+      effect-hornet-beHitDown_16: -1916275622
+      effect-hornet-beHitDown_25: -1120053772
+      effect-hornet-beHitDown_29: 810996510
+      effect-hornet-beHitDown_7: -1450979117
+      effect-hornet-beHitDown_26: -1676476907
+      effect-hornet-beHitDown_5: 32176209
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

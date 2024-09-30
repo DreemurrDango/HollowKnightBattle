@@ -84,7 +84,7 @@ public class GameManager : Singleton<GameManager>
         IEnumerator ReloadGameRoutine(float waitTime)
         {
             if (waitTime > 0) yield return new WaitForSeconds(waitTime);
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 

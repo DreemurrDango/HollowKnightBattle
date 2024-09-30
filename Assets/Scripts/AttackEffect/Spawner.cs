@@ -2,29 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
+using Enums;
 
 /// <summary>
 /// 预制体生成器：在指定形状区域内不断生成预制体
 /// </summary>
 public class Spawner : MonoBehaviour
 {
-    /// <summary>
-    /// 生成范围的形状枚举
-    /// </summary>
-    public enum RangeShape
-    {
-        [EnumName("定点")]
-        point,
-        [EnumName("矩形")]
-        box2D,
-        [EnumName("盒形")]
-        box,
-        [EnumName("圆形")]
-        circle,
-        [EnumName("球形")]
-        sphere,
-    }
-
     [Header("属性")]
     [SerializeField]
     [Tooltip("生成范围的形状")]
@@ -39,7 +23,7 @@ public class Spawner : MonoBehaviour
     [Tooltip("生成预制体后所属的根形变，若不指定则默认为该对象")]
     protected Transform parentT;
     [SerializeField]
-    [Min(0.01f)]
+    [Min(0f)]
     [Tooltip("生成的间隔，若设置为0，则将一次性生成所有预制体")]
     protected float interval = 0.05f;
     [SerializeField]
@@ -104,6 +88,16 @@ public class Spawner : MonoBehaviour
         spawnCoroutine = StartCoroutine(SpawnRoutine());
     }
 
+    [ContextMenu("单次生成")]
+    /// <summary>
+    /// 生成一次实例
+    /// </summary>
+    public void PlayOnce()
+    {
+        if (spawnCoroutine != null && inSpawning) return;
+        SpawnInstance(prefabGO);
+    }
+
     [ContextMenu("停止生成")]
     /// <summary>
     /// 停止生成
@@ -163,6 +157,7 @@ public class Spawner : MonoBehaviour
             while (!inSpawning) yield return null;
             for (int i = 0; i < spawnNum; i++) SpawnInstance(prefabGO);
             if (interval > 0) yield return new WaitForSeconds(interval);
+            else break;
         }
         inSpawning = false;
     }

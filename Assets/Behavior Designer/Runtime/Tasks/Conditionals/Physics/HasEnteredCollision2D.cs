@@ -27,6 +27,7 @@ namespace BehaviorDesigner.Runtime.Tasks
         {
             if (string.IsNullOrEmpty(tag.Value) || collision.gameObject.CompareTag(tag.Value)) {
                 collidedGameObject.Value = collision.gameObject;
+                Debug.Log(collidedGameObject.Value);
                 enteredCollision = true;
             }
         }

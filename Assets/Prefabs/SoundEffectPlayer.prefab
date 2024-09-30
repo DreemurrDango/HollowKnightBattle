@@ -143,5 +143,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SEName: 
   playOnEnable: 0
-  delayOnCompleted: 0.5
+  delayOnCompleted: 0.1
   destroyOnCompleted: 1

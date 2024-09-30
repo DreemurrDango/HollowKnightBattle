@@ -76,4 +76,65 @@ namespace Enums
                 ComparisonWay.equal => value1 == value2,
             };
     }
+
+
+    /// <summary>
+    /// 值大小关系判断
+    /// </summary>
+    public class RelativePostionComparison
+    {
+        /// <summary>
+        /// 相对方位枚举
+        /// </summary>
+        public enum RelativePostion
+        {
+            [EnumName("重合")]
+            coincide,
+            [EnumName("上方")]
+            up,
+            [EnumName("下方")]
+            down,
+            [EnumName("左方")]
+            left,
+            [EnumName("右方")]
+            right
+        }
+
+        /// <summary>
+        /// 比较目标坐标对于原坐标点，在Unity2D坐标系中的相对位置
+        /// </summary>
+        /// <param name="way">值比较方式</param>
+        /// <param name="value1">要比较的值1</param>
+        /// <param name="value2">要比较的值2</param>
+        /// <returns>返回两值的大小关系</returns>
+        public static bool InRelativePostion(Vector2 aimPos, Vector2 sourcePos, RelativePostion rp, float coincideDistance = 0.1f)
+            => rp switch
+            {
+                RelativePostion.coincide => (aimPos -  sourcePos).magnitude < coincideDistance,
+                RelativePostion.up => aimPos.y > sourcePos.y,
+                RelativePostion.down => aimPos.y < sourcePos.y,
+                RelativePostion.left => aimPos.x < sourcePos.x,
+                RelativePostion.right => aimPos.x > sourcePos.x
+            };
+    }
+
+
+    /// <summary>
+    /// 生成范围的形状枚举
+    /// </summary>
+    public enum RangeShape
+    {
+        [EnumName("定点")]
+        point,
+        [EnumName("矩形")]
+        box2D,
+        [EnumName("盒形")]
+        box,
+        [EnumName("圆形")]
+        circle,
+        [EnumName("扇形")]
+        fan,
+        [EnumName("球形")]
+        sphere,
+    }
 }

@@ -6,9 +6,8 @@ using DataCollection;
 [RequireComponent(typeof(AudioSource))]
 public class SoundEffectPlayer : MonoBehaviour
 {
-    [SerializeField]
     [Tooltip("要播放的音效注册名")]
-    private string SEName;
+    public string SEName;
     [SerializeField]
     [Tooltip("是否在启用时自动播放")]
     private bool playOnEnable;
@@ -54,14 +53,25 @@ public class SoundEffectPlayer : MonoBehaviour
         if (playOnEnable && SEName != "") Play();
     }
 
+    private void OnDestroy()
+    {
+        AudioManager.Instance.SEPlayerLists.Remove(this);
+    }
+
     /// <summary>
     /// 载入源数据
     /// </summary>
     /// <param name="info">要读取的音效信息</param>
     public void Init(SoundEffectInfo info)
     {
+        this.name = info.name;
         this.info = info;
         this.SEName = info.name;
+        if (info.solution == SoundEffectInfo.MultiPlaySolution.playLoop)
+        {
+            destroyOnCompleted = false;
+            GetAudioSource.loop = true;
+        }
     }
 
     /// <summary>
@@ -69,10 +79,17 @@ public class SoundEffectPlayer : MonoBehaviour
     /// </summary>
     public void Play()
     {
+        StopAllCoroutines();
         GetAudioSource.clip = info.clip;
         GetAudioSource.volume = Random.Range(info.volumeRange.x, info.volumeRange.y);
         GetAudioSource.pitch = Random.Range(info.pitchRange.x, info.pitchRange.y);
         GetAudioSource.Play();
-        if (destroyOnCompleted) Destroy(gameObject, info.clip.length + delayOnCompleted);
+        if (destroyOnCompleted) StartCoroutine(OnPlayCompleted());
+        
+        IEnumerator OnPlayCompleted()
+        {
+            yield return new WaitForSeconds(info.clip.length + delayOnCompleted);
+            Destroy(gameObject);
+        }
     }
 }

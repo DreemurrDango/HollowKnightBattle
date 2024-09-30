@@ -205,6 +205,10 @@ public class CharaController : Singleton<CharaController>
     /// </summary>
     public bool CanJump => availableJumpTimes > 0;
     /// <summary>
+    /// 当前是否正在进行攻击
+    /// </summary>
+    public bool InDoingAttack => t_attackCD > 0;
+    /// <summary>
     /// 当前是否可以攻击
     /// </summary>
     public bool CanAttack => !(t_attackCD > 0);
@@ -306,7 +310,7 @@ public class CharaController : Singleton<CharaController>
             ae.Init(gameObject, damageFactor);
             //循环播放攻击动作动画
             attackAnimIndex = (attackAnimIndex + 1) % 2;
-            animator.SetInteger("attackAnimIndex", attackAnimIndex);
+            animator.SetFloat("attackAnimIndex", attackAnimIndex);
             animator.SetTrigger("doAttack");
             //攻击内置CD
             t_attackCD = attackCoolDown;
@@ -394,7 +398,7 @@ public class CharaController : Singleton<CharaController>
             mainCollider2D.isTrigger = true;
             //分离残影，供BOSS敌人继续行为树动作
             staticStayT.SetParent(null, true);
-            bossEnemyTree.SetVariableValue("AimTransform", staticStayT);
+            bossEnemyTree.SetVariableValue("BattleTargetT", staticStayT);
             // 被击中且死亡时播放受伤音效
             string seName = beHitSEName + (Random.value > 0.5f ? "1" : "2");
             AudioManager.Instance.PlaySE(seName, transform);
@@ -410,4 +414,10 @@ public class CharaController : Singleton<CharaController>
             }
         }
     }
+
+    /// <summary>
+    /// 设置控制锁定，指定时间内角色无法接受控制
+    /// </summary>
+    /// <param name="t">控制锁定时间</param>
+    public void SetControlLock(float t = 999) => t_controlLock = t;
 }
