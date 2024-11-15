@@ -357,6 +357,7 @@ public class CharaController : Singleton<CharaController>
         //受伤后后退力
         Vector2 finalForce = damageTakeForce;
         finalForce.x *= hitGO.transform.position.x > transform.position.x ? -1 : 1;
+        if (availableJumpTimes <= 0 && rigidbody.velocity.y > 0.5f) finalForce.y = 0f;
         rigidbody.AddForce(finalForce);
         //受到伤害后慢放
         StartCoroutine(TestManager.Instance.TimeSlowDownBriefly(0.5f, 1f));

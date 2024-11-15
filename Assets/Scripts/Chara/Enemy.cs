@@ -36,6 +36,9 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     [Tooltip("该敌人的行为树组件")]
     private BehaviorTree behaviorTree;
+    [SerializeField]
+    [Tooltip("该敌人的碰撞伤害器")]
+    private AttackEffect colliderAttackEffect;
 
     [Header("-被击中时效果")]
     [SerializeField]
@@ -201,6 +204,7 @@ public class Enemy : MonoBehaviour
     private void OnDied()
     {
         health = 0;
+        if(colliderAttackEffect != null) colliderAttackEffect.enabled = false;
         if (onDiedSEName != "") AudioManager.Instance.PlaySE(onDiedSEName, transform);
         //慢放
         if (onDiedSlowDownLast > 0f && onDiedTimeScale !=  1)

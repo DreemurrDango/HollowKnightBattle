@@ -34,7 +34,7 @@ public class WaitForAnimationCompleted : Action
         var stateInfo = animator.GetCurrentAnimatorStateInfo(0);
         if (stateName == "") return stateInfo.normalizedTime >= 1 ? TaskStatus.Success : TaskStatus.Running;
         else if (stateInfo.shortNameHash != stateHash) return waitOnStateDiffer ? TaskStatus.Running : TaskStatus.Failure;
-        else return stateInfo.normalizedTime >= 0.9f ? TaskStatus.Success : TaskStatus.Running;
+        else return stateInfo.normalizedTime >= 0.85f ? TaskStatus.Success : TaskStatus.Running;
     }
 
     public override void OnReset()

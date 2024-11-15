@@ -49,6 +49,7 @@ public class BossHealthBar : MonoBehaviour
     public void LoadData(bool showTranstion)
     {
         nowHealth = enemy.Health;
+        handleImage.enabled = false;
         float newValue = (enemy.FullHealth - nowHealth) / enemy.FullHealth;
         if (!showTranstion) slider.value = newValue;
         else slider.DOValue(newValue, (newValue - slider.value) / speed);

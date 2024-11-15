@@ -139,7 +139,7 @@ public class AudioManager : Singleton<AudioManager>
         }
         var player = Instantiate(soundEffectPlayerPrefab.gameObject,followT).GetComponent<SoundEffectPlayer>();
         SEPlayerLists.Add(player);
-        Debug.Log("PlaySE " + info.name);
+        //Debug.Log("PlaySE " + info.name);
         player.Init(info);
         player.Play();
     }

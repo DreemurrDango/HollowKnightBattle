@@ -56,7 +56,8 @@ public class GetRandomPos : Action
                 break;
             case RangeShape.sphere:break;
         }
-        
+        Debug.Log("³å´ÌÎ»ÖÃÎª" + returnPos.Value);
+        Debug.DrawLine(Owner.transform.position, returnPos.Value);
 		return TaskStatus.Success;
 	}
 

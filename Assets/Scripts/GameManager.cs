@@ -84,9 +84,30 @@ public class GameManager : Singleton<GameManager>
         IEnumerator ReloadGameRoutine(float waitTime)
         {
             if (waitTime > 0) yield return new WaitForSeconds(waitTime);
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            LoadScene();
         }
     }
+
+    /// <summary>
+    /// 重载游戏关卡
+    /// </summary>
+    /// <param name="waitTime">短暂等待的时间</param>
+    public void LoadNextLevel(float waitTime)
+    {
+        StartCoroutine(LoadLevelRoutine(waitTime));
+        IEnumerator LoadLevelRoutine(float waitTime)
+        {
+            if (waitTime > 0) yield return new WaitForSeconds(waitTime);
+            LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+    }
+
+    /// <summary>
+    /// 立即载入场景
+    /// </summary>
+    /// <param name="buildIndex">场景构建序号，不填时默认为当前场景</param>
+    public void LoadScene(int buildIndex = -1) => 
+        SceneManager.LoadScene(buildIndex != -1? buildIndex :SceneManager.GetActiveScene().buildIndex);
 
     /// <summary>
     /// 退出游戏

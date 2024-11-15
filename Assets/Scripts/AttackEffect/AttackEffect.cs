@@ -29,7 +29,7 @@ public class AttackEffect : MonoBehaviour
     /// <summary>
     /// ±æ¥Œπ•ª˜◊Ó÷’…À∫¶
     /// </summary>
-    public float FinalDamage => damage *= damageFactor;
+    public float FinalDamage => damage * damageFactor;
 
     private void Start()
     {
@@ -49,7 +49,7 @@ public class AttackEffect : MonoBehaviour
     public void OnHitObject(GameObject hitGO)
     {
         //Debug.Log(hitGO.name);
-        if (!this.enabled || hitGO == belongerGO) return;
+        if (!this.enabled || hitGO == belongerGO || damage == 0) return;
         if((aimLayer.value & 1 << hitGO.layer) > 0)
         {
             switch (LayerMask.LayerToName(hitGO.layer))
