@@ -224,7 +224,7 @@ public partial class @DefaultInput: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""f75e0d38-39f2-4174-b64f-58cd5be9ca0e"",
-                    ""path"": ""<Keyboard>/z"",
+                    ""path"": ""<Keyboard>/j"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Key&Mouse"",

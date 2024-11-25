@@ -6,7 +6,7 @@
             {
                 "type": "System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
                 "key": "buildOutputDirList",
-                "value": "{\"m_Value\":\"E:/文档/我的文档/我的游戏/BehaviorTreeStudy_FalseKnightFight/WebGL;;;;;;;;;\"}"
+                "value": "{\"m_Value\":\"C:/Users/30110/Desktop/WebGL;C:/Users/30110/Desktop/debug;E:/文档/OneDrive/我的游戏/BehaviorTreeStudy_FalseKnightFight/WebGL;E:/文档/OneDrive/我的游戏/BehaviorTreeStudy_FalseKnightFight/WebGL/Build;E:/文档/我的文档/我的游戏/BehaviorTreeStudy_FalseKnightFight/WebGL;;;;;\"}"
             },
             {
                 "type": "System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",

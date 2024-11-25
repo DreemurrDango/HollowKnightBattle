@@ -55,7 +55,7 @@ public class SoundEffectPlayer : MonoBehaviour
 
     private void OnDestroy()
     {
-        if (AudioManager.Instance.SEPlayerLists.Contains(this))
+        if (AudioManager.Instance != null)
             AudioManager.Instance.SEPlayerLists.Remove(this);
     }
 

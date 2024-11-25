@@ -123,5 +123,17 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
+    /// <summary>
+    /// 时间慢放特效
+    /// </summary>
+    /// <param name="timeScale">慢放期间的时间流速，应小于1</param>
+    /// <param name="t">慢放持续时间</param>
+    /// <returns></returns>
+    public static IEnumerator TimeSlowDownBriefly(float timeScale, float t)
+    {
+        Time.timeScale = timeScale;
+        yield return new WaitForSecondsRealtime(t);
+        Time.timeScale = 1;
+    }
     public void SwitchFullScreen() => Screen.fullScreen = !Screen.fullScreen;
 }

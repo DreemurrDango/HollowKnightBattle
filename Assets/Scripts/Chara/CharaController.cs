@@ -360,7 +360,7 @@ public class CharaController : Singleton<CharaController>
         if (availableJumpTimes <= 0 && rigidbody.velocity.y > 0.5f) finalForce.y = 0f;
         rigidbody.AddForce(finalForce);
         //受到伤害后慢放
-        StartCoroutine(TestManager.Instance.TimeSlowDownBriefly(0.5f, 1f));
+        StartCoroutine(GameManager.TimeSlowDownBriefly(0.5f, 1f));
         //受击UI动画
         beHitShowUI.PlayBeHitEffectUIAnimation();
         //控制锁定

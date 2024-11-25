@@ -208,7 +208,7 @@ public class Enemy : MonoBehaviour
         if (onDiedSEName != "") AudioManager.Instance.PlaySE(onDiedSEName, transform);
         //慢放
         if (onDiedSlowDownLast > 0f && onDiedTimeScale !=  1)
-            StartCoroutine(TestManager.Instance.TimeSlowDownBriefly(onDiedTimeScale, onDiedSlowDownLast));
+            StartCoroutine(GameManager.TimeSlowDownBriefly(onDiedTimeScale, onDiedSlowDownLast));
         // 若设置掐停则清楚当前速度
         Vector2 v = rigidbody2D.velocity;
         if (clearXVelocity) v.x = 0;
