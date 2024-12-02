@@ -12,4 +12,6 @@ EditorBuildSettings:
     path: Assets/Scenes/HornetBattle.unity
     guid: 04ad90f3e6459d84cb66acac1318417c
   m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: d80abc42b16e45942bf2e36ef80126f7, type: 2}
     com.unity.input.settings: {fileID: 11400000, guid: 1a99ec4e4b8f55040b56d6700e22a1f0, type: 2}
+    com.unity.localization.settings: {fileID: 11400000, guid: 55202e438c5bbe740b4bce16a2d80260, type: 2}

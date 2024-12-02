@@ -32,7 +32,7 @@ public class EndMenuUI : MonoBehaviour
     public void ShowTimeUsedInfo()
     {
         if (timeUsedInfoText == null) return;
-        string result = string.Format("用时 <color=yellow><b>{0}</b></color>", Time.timeSinceLevelLoad);
+        string result = string.Format("<color=yellow><b>{0}</b></color>", Time.timeSinceLevelLoad);
         timeUsedInfoText.text = result;
     }
 

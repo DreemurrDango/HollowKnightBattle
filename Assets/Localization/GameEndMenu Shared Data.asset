@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: GameEndMenu Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: GameEndMenu
+  m_TableCollectionNameGuidString: d8e3e3c00c739a74b97735cb4af00828
+  m_Entries:
+  - m_Id: 292441829376
+    m_Key: Defeated
+    m_Metadata:
+      m_Items: []
+  - m_Id: 767975239680
+    m_Key: Use Time
+    m_Metadata:
+      m_Items: []
+  - m_Id: 932685557760
+    m_Key: 3Q4P
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1909945806848
+    m_Key: Next Level
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1914848948224
+    m_Key: Exit Game
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3425792438272
+    m_Key: YOU DIED
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3635520221184
+    m_Key: Try Again
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36171365494784
+    m_Key: Resume
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 7996751424822706200
+  references:
+    version: 2
+    RefIds:
+    - rid: 7996751424822706200
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1733144623770
