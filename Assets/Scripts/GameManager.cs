@@ -5,6 +5,8 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
+using UnityEngine.Localization;
+using UnityEngine.Localization.Settings;
 using UnityEngine.SceneManagement;
 
 /// <summary>
@@ -22,6 +24,8 @@ public class GameManager : Singleton<GameManager>
     public string defeatSnapshotName;
     [Tooltip("移动设备的控制UI")]
     public GameObject mobileControlUI;
+    [Tooltip("默认初始语言")]
+    public LocaleIdentifier defaultLanguage;
 
     [Tooltip("初始化事件")]
     public UnityEvent initEvents;
@@ -46,6 +50,8 @@ public class GameManager : Singleton<GameManager>
             //Screen.fullScreen = true;
         }
         mobileControlUI.SetActive(Application.isMobilePlatform);
+        if (defaultLanguage.CultureInfo != null)
+            SetLocalization(defaultLanguage);
     }
 
     /// <summary>
@@ -135,5 +141,22 @@ public class GameManager : Singleton<GameManager>
         yield return new WaitForSecondsRealtime(t);
         Time.timeScale = 1;
     }
+
+    /// <summary>
+    /// 切换全屏模式
+    /// </summary>
     public void SwitchFullScreen() => Screen.fullScreen = !Screen.fullScreen;
+
+    /// <summary>
+    /// 设置本地化方案
+    /// </summary>
+    /// <param name="localIndex">方案序号</param>
+    public void SetLocalization(int localIndex) =>
+        LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[localIndex];
+    /// <summary>
+    /// 设置本地化方案
+    /// </summary>
+    /// <param name="localIndex">方案序号</param>
+    public void SetLocalization(LocaleIdentifier localID) =>
+        LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.GetLocale(localID);
 }

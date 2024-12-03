@@ -50,6 +50,18 @@ MonoBehaviour:
     m_Localized: Resume
     m_Metadata:
       m_Items: []
+  - m_Id: 351960845004800
+    m_Localized: Pause
+    m_Metadata:
+      m_Items: []
+  - m_Id: 353118204473344
+    m_Localized: Volumn
+    m_Metadata:
+      m_Items: []
+  - m_Id: 353150790021120
+    m_Localized: Language
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

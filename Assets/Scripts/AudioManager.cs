@@ -79,6 +79,21 @@ public class AudioManager : Singleton<AudioManager>
     public SoundEffectInfo GetSEInfo(string SEName) => soundEffectInfos.Find(i => i.name == SEName);
 
     /// <summary>
+    /// 主音量信息
+    /// </summary>
+    public float MasterVolume
+    {
+        get
+        {
+            mainMixer.GetFloat("MasterVolume", out float v);
+            return MixerVolumeToSourceVolume(v);
+        }
+        set
+        {
+            mainMixer.SetFloat("MasterVolume", SourceVolumeToMixerVolume(value));
+        }
+    }
+    /// <summary>
     /// 播放新的BGM
     /// </summary>
     /// <param name="bgmClip">要播放的BGM片段</param>
@@ -190,4 +205,20 @@ public class AudioManager : Singleton<AudioManager>
             SwitchSnapShot(prevSnapshot);
         }
     }
+
+    /// <summary>
+    /// 将音源的音量转为混音器音量
+    /// </summary>
+    /// <param name="volume">音源音量，范围为0~1</param>
+    /// <returns>混音器音量</returns>
+    public static float SourceVolumeToMixerVolume(float volume)
+        => volume * 80 * (2 - volume) - 80;
+
+    /// <summary>
+    /// 将混音器的音量转为音源音量
+    /// </summary>
+    /// <param name="volume">混音器音量</param>
+    /// <returns>音源音量</returns>
+    public static float MixerVolumeToSourceVolume(float volume)
+        => volume / 100 + 1f;
 }
