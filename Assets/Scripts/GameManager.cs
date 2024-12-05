@@ -157,6 +157,14 @@ public class GameManager : Singleton<GameManager>
     /// 设置本地化方案
     /// </summary>
     /// <param name="localIndex">方案序号</param>
-    public void SetLocalization(LocaleIdentifier localID) =>
-        LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.GetLocale(localID);
+    public void SetLocalization(LocaleIdentifier localID)
+    {
+        StartCoroutine(SwitchLocalizationRuntine(localID));
+        IEnumerator SwitchLocalizationRuntine(LocaleIdentifier localID)
+        {
+            yield return LocalizationSettings.InitializationOperation;
+            LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.GetLocale(localID);
+        }
+    }
+        
 }
